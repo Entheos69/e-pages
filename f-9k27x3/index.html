@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INDUCOP · Calibración del sistema · Sus datos de operación</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0c1d30;--paper:#f7f4ec;--paper-2:#efe9dc;--line:#d8cfbd;--cyan:#1fa9bf;
+    --cyan-deep:#0f7d8f;--lime:#7cb518;--lime-bg:#eef6dc;--amber:#e8930c;--mut:#5d6b78}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--paper);color:var(--navy);line-height:1.5;font-size:15px}
+  .wrap{max-width:560px;margin:0 auto;padding:0 16px 40px}
+  header{background:var(--navy);color:var(--paper);padding:26px 0 22px;border-bottom:3px solid var(--lime);margin-bottom:8px}
+  header .wrap{padding-bottom:0}
+  .brand{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+  h1{font-family:'Fraunces',serif;font-weight:900;font-size:23px;line-height:1.12}
+  .sub{margin-top:8px;color:#c9d4dd;font-size:13.5px}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:17.5px;margin:26px 0 4px;color:var(--cyan-deep)}
+  .hint{font-size:12.5px;color:var(--mut);margin-bottom:10px}
+  .item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+  .item label{display:block;font-weight:600;font-size:14px;margin-bottom:8px}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  .row .f{flex:1;min-width:90px}
+  .f small{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:var(--mut);text-transform:uppercase;margin-bottom:3px}
+  input[type=text],textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:inherit;font-size:14px;background:var(--paper)}
+  input:focus,textarea:focus{outline:2px solid var(--cyan);border-color:var(--cyan)}
+  textarea{min-height:56px;resize:vertical}
+  .send{position:sticky;bottom:0;background:linear-gradient(transparent,var(--paper) 30%);padding:18px 0 6px;display:flex;gap:10px}
+  button{flex:1;border:0;border-radius:12px;padding:14px 10px;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+  #wa{background:#25D366;color:#fff}
+  #cp{background:var(--navy);color:var(--paper);flex:0 0 34%}
+  .ok{font-size:12.5px;color:#4a6e0f;text-align:center;padding-top:6px;display:none}
+  #salida{display:none;margin-top:12px}
+  #salida textarea{min-height:150px;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+  #salida .lbl{font-size:12.5px;color:var(--mut);margin:4px 0 8px}
+  #walink{display:none;text-align:center;background:#25D366;color:#fff;border-radius:12px;padding:13px;font-weight:700;text-decoration:none;margin-top:8px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand">INDUCOP · Calibración del sistema</div>
+  <h1>Sus datos de operación, en 5 minutos</h1>
+  <div class="sub">Solo ustedes conocen estos tiempos y reglas. Llene lo que sepa —lo que no, se deja en blanco— y toque <b>Enviar por WhatsApp</b> al final.</div>
+</div></header>
+
+<div class="wrap" id="form">
+
+  <h2>1 · Tiempos de su venta</h2>
+  <div class="hint">Formato sugerido por casilla: <b>sano / máximo</b> en días (ej. "3/7").</div>
+
+  <div class="item" data-k="Cotización enviada → seguimiento"><label>De que enviamos la cotización, ¿cuánto es sano esperar antes de dar seguimiento… y cuánto ya es demasiado?</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+
+  <div class="item" data-k="Aceptada → orden liberada"><label>De que el cliente acepta, ¿cuánto tarda en liberar su orden de compra?</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+
+  <div class="item" data-k="Comparación de proveedores armada → aprobada"><label>¿En cuánto tiempo debería quedar armada y aprobada la comparación de proveedores?</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+
+  <div class="item" data-k="Orden a proveedor → entrega"><label>De la orden al proveedor a la entrega con el cliente:</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+
+  <div class="item" data-k="Umbral de enfriamiento de contacto clave"><label>¿Cuántos días sin contacto hacen que un cliente clave "se enfríe"?</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+
+  <h2>2 · Cómo les consta hoy</h2>
+  <div class="hint">Correo, llamada, orden en PDF, papel, firma…</div>
+  <div class="item" data-k="Evidencia: aceptación"><label>¿Cómo les consta que el cliente aceptó una cotización?</label><textarea></textarea></div>
+  <div class="item" data-k="Evidencia: orden liberada"><label>¿Cómo les consta que liberó su orden de compra?</label><textarea></textarea></div>
+  <div class="item" data-k="Evidencia: entrega conforme"><label>¿Cómo les consta que la entrega quedó conforme?</label><textarea></textarea></div>
+
+  <h2>3 · ¿Cuándo está cerrado y listo para facturar?</h2>
+  <div class="item" data-k="Punto de cierre"><label>¿Al confirmar la entrega, al recibir conformidad firmada, u otro momento?</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+  <div class="item" data-k="Excepciones al cierre"><label>¿Excepciones por tipo de cliente o de trato?</label><textarea></textarea></div>
+
+  <h2>4 · Números reales y pendientes</h2>
+  <div class="item" data-k="Cotizaciones por mes"><label>Cotizaciones al mes (aprox):</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+  <div class="item" data-k="Clientes activos último año"><label>Clientes que sí compraron en el último año:</label>
+    <div class="row"><div class="f"><small>ETCS</small><input type="text" data-m="ETCS"></div><div class="f"><small>SystemaTip</small><input type="text" data-m="Tip"></div><div class="f"><small>FarmaQ</small><input type="text" data-m="FarmaQ"></div></div></div>
+  <div class="item" data-k="Visitas por semana por vendedor"><label>Visitas por semana de cada vendedor:</label><input type="text"></div>
+  <div class="item" data-k="Otros usuarios del sistema"><label>¿Alguien más usará el sistema además de ventas, supervisión, atención y administración?</label><textarea></textarea></div>
+  <div class="item" data-k="Página web de SystemaTip"><label>¿Cuál es la dirección correcta de la página de SystemaTip?</label><input type="text" placeholder="www..."></div>
+  <div class="item" data-k="Cotización de ejemplo"><label>¿Quién nos comparte una cotización reciente (la que sea) como ejemplo?</label><input type="text"></div>
+  <div class="item" data-k="Formato a facturación"><label>¿Con quién vemos el formato que hoy le entregan a facturación?</label><input type="text"></div>
+
+  <div class="send">
+    <button id="wa">Enviar por WhatsApp</button>
+    <button id="cp">Copiar</button>
+  </div>
+  <div class="ok" id="ok">Respuestas copiadas — péguelas en el chat.</div>
+  <div id="salida">
+    <div class="lbl">Sus respuestas quedaron armadas aquí abajo. Si el botón verde no abre WhatsApp, manténgalas presionadas para copiar y péguelas en el chat:</div>
+    <textarea id="texto" readonly></textarea>
+    <a id="walink" target="_blank" rel="noopener">Abrir WhatsApp con las respuestas</a>
+  </div>
+</div>
+
+<script>
+// número ofuscado
+var _n = "NDk1NDA2NTY1NTI1";           // <- reemplazar
+var NUMERO_WHATSAPP = atob(_n).split("").reverse().join("");
+
+function armar(){
+  var out = ["*Datos de operación · calibración del sistema*", ""];
+  document.querySelectorAll('.item').forEach(function(it){
+    var k = it.getAttribute('data-k'), vals = [];
+    it.querySelectorAll('input,textarea').forEach(function(el){
+      var v = el.value.trim(); if(!v) return;
+      var m = el.getAttribute('data-m');
+      vals.push(m ? (m + ": " + v) : v);
+    });
+    if(vals.length) out.push("• " + k + " — " + vals.join(" · "));
+  });
+  out.push("", "(enviado desde el formulario de calibración)");
+  return out.join("\n");
+}
+
+// Muestra SIEMPRE el resultado en pantalla (degradación digna: nada falla en silencio)
+function mostrar(){
+  var txt = armar();
+  var ta = document.getElementById('texto');
+  ta.value = txt;
+  var a = document.getElementById('walink');
+  a.href = "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(txt);
+  a.style.display = 'block';
+  document.getElementById('salida').style.display = 'block';
+  ta.scrollIntoView({behavior:'smooth', block:'center'});
+  return txt;
+}
+
+document.getElementById('wa').addEventListener('click', function(){
+  var txt = mostrar();
+  var url = "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(txt);
+  try{
+    var w = window.open(url, "_blank");
+    if(!w){ window.location.href = url; }   // popup bloqueado -> navegación directa
+  }catch(e){ /* el enlace visible queda como camino manual */ }
+});
+
+document.getElementById('cp').addEventListener('click', function(){
+  var txt = mostrar();
+  var ok = false;
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){
+        document.getElementById('ok').style.display='block';
+      });
+      ok = true;
+    }
+  }catch(e){}
+  if(!ok){
+    var ta = document.getElementById('texto');
+    ta.focus(); ta.select();
+    try{ ok = document.execCommand('copy'); }catch(e){}
+    if(ok){ document.getElementById('ok').style.display='block'; }
+  }
+});
+</script>
+</body>
+</html>
